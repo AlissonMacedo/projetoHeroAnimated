@@ -1,16 +1,24 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View, Button } from 'react-native';
+import { Container } from './styles';
 
-import {Container} from './styles';
-
-export default function Main() {
+function Main({ navigation }) {
   return (
     <>
       <Container>
         <View>
-          <Text>Teste</Text>
+          <Button
+            onPress={() => navigation.navigate('Details')}
+            title="Go to Details"
+          />
         </View>
       </Container>
     </>
   );
 }
+
+Main.navigationOptions = {
+  title: 'Teste',
+};
+
+export default Main;
