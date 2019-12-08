@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://api.github.com',
+  baseURL: 'https://superheroapi.com/api/1467143070109568/',
 });
 
 export default api;
