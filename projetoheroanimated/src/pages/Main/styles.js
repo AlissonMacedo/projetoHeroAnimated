@@ -6,42 +6,51 @@ export const Container = styled.View`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: #999;
+  background-color: #fff;
 `;
 
 export const CardMain = styled.View`
   justify-content: center;
   align-items: center;
-  height: 75%;
+  height: 300px;
   width: 100%;
   background-color: #000;
   border-bottom-left-radius: 60;
   border-bottom-right-radius: 60;
-  position: absolute;
 `;
 
 export const ListCards = styled.View`
-  background-color: #fff;
-  width: 100%;
-  margin: 70%;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  align-self: stretch;
+  margin: 5px 20px;
 `;
 
 export const CardListed = styled.View`
-  width: 100%;
-  height: 70;
-  background-color: #000;
+  flex-direction: row;
+  align-items: center;
+  align-self: stretch;
+  height: 120px;
+  margin: 10px;
+  padding: 10px;
 `;
 
 export const ImagemCard = styled.Image`
-  height: 100%;
-  width: 40;
-  border-radius: 4;
+  height: 130px;
+  width: 95px;
+  border-radius: 10px;
 `;
 
 export const DetailsCard = styled.View`
-  height: 100%;
-  width: 100%;
-  background-color: #999;
+  flex: 1;
+  flex-direction: column;
+  padding: 10px 10px;
+  height: 90px;
+  background-color: #ccc;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
 `;
 
 export const ButtonExplorer = styled(RectButton)`

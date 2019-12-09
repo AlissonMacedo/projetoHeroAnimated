@@ -19,8 +19,6 @@ export const CardMain = styled.View`
   background-color: #000;
   border-bottom-left-radius: 60;
   border-bottom-right-radius: 60;
-  position: absolute;
-  z-index: 1;
 `;
 
 export const Image = styled.Image`
@@ -33,7 +31,6 @@ export const Heroes = styled.View`
   box-shadow: 3px 1px 8px rgba(0, 0, 0, 0.8);
   padding: 20px;
   border-radius: 12px;
-  margin-top: 300px;
 `;
 
 export const HeroName = styled.Text`

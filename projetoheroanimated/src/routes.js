@@ -11,7 +11,7 @@ const Routes = createAppContainer(
       Details,
     },
     {
-      initialRouteName: 'Details',
+      initialRouteName: 'Main',
     },
   ),
 );
