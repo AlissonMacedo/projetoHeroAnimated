@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.SafeAreaView`
+export const Container = styled.ScrollView`
   flex: 1;
 `;
 
@@ -14,11 +14,16 @@ export const Content = styled.View`
 export const CardMain = styled.View`
   justify-content: center;
   align-items: center;
-  height: 60%;
+  height: 300px;
   width: 100%;
   background-color: #000;
+<<<<<<< HEAD
   border-bottom-left-radius: 60;
   border-bottom-right-radius: 60;
+=======
+  border-bottom-left-radius: 30;
+  border-bottom-right-radius: 30;
+>>>>>>> 927fcc158c305ab20b47b80fbee588f113794843
 `;
 
 export const Image = styled.Image`
@@ -28,9 +33,12 @@ export const Image = styled.Image`
 
 export const Heroes = styled.View`
   background: #fff;
-  box-shadow: 3px 1px 8px rgba(0, 0, 0, 0.8);
   padding: 20px;
   border-radius: 12px;
+<<<<<<< HEAD
+=======
+  margin-top: -65px;
+>>>>>>> 927fcc158c305ab20b47b80fbee588f113794843
 `;
 
 export const HeroName = styled.Text`
@@ -45,4 +53,22 @@ export const HeroDescription = styled.Text`
   font-weight: normal;
   font-size: 18px;
   text-align: center;
+`;
+
+export const HeroInfo = styled.View`
+  padding: 20px;
+`;
+
+export const Title = styled.Text`
+  font-weight: bold;
+  color: #666;
+  font-size: 22px;
+  margin-bottom: 15px;
+`;
+
+export const Text = styled.Text`
+  color: #999;
+  font-size: 16px;
+  line-height: 25px;
+  margin-bottom: 20px;
 `;
