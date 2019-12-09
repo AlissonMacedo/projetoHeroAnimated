@@ -14,16 +14,17 @@ export const Content = styled.View`
 export const CardMain = styled.View`
   justify-content: center;
   align-items: center;
-  height: 300px;
+  height: 350px;
   width: 100%;
   background-color: #000;
   border-bottom-left-radius: 30;
   border-bottom-right-radius: 30;
+  overflow: hidden;
 `;
 
 export const Image = styled.Image`
-  height: 200px;
-  width: 200px;
+  height: 350px;
+  width: 100%;
 `;
 
 export const Heroes = styled.View`
