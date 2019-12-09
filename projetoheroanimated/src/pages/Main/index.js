@@ -8,6 +8,9 @@ import {
   ListCards,
   ButtonExplorer,
   ButtonExplorerText,
+  CardListed,
+  ImagemCard,
+  DetailsCard,
 } from './styles';
 
 import Batman from '../../assets/batman.png';
@@ -23,7 +26,16 @@ export default function Main({ navigation }) {
             <ButtonExplorerText>Explorer</ButtonExplorerText>
           </ButtonExplorer>
         </CardMain>
-        <ListCards />
+        <ListCards>
+          <CardListed>
+            <ImagemCard source={Batman} />
+            <DetailsCard />
+          </CardListed>
+          <CardListed>
+            <ImagemCard source={Batman} />
+            <DetailsCard />
+          </CardListed>
+        </ListCards>
       </Container>
     </SafeAreaView>
   );
