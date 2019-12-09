@@ -14,7 +14,7 @@ export const Content = styled.View`
 export const CardMain = styled.View`
   justify-content: center;
   align-items: center;
-  height: 300px;
+  height: 350px;
   width: 100%;
   background-color: #000;
 <<<<<<< HEAD
@@ -23,12 +23,16 @@ export const CardMain = styled.View`
 =======
   border-bottom-left-radius: 30;
   border-bottom-right-radius: 30;
+<<<<<<< HEAD
 >>>>>>> 927fcc158c305ab20b47b80fbee588f113794843
+=======
+  overflow: hidden;
+>>>>>>> b192823e9d028e52ac85148d68e713c5965b45c6
 `;
 
 export const Image = styled.Image`
-  height: 200px;
-  width: 200px;
+  height: 350px;
+  width: 100%;
 `;
 
 export const Heroes = styled.View`
