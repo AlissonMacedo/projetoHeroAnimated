@@ -13,16 +13,22 @@ import {
   HeroInfo,
   Title,
   Text,
+  AbilitiesContent,
+  Abilities,
+  Stats,
+  NameStats,
+  RoundStats,
+  ValueStats,
 } from './styles';
 
-import Batman from '../../assets/flash.jpg';
+import Flash from '../../assets/flash.jpg';
 
 export default function Details() {
   return (
     <Container>
       <Content>
         <CardMain>
-          <Image source={Batman} />
+          <Image resizeMode="cover" source={Flash} />
         </CardMain>
 
         <Heroes>
@@ -52,6 +58,32 @@ export default function Details() {
           Corps
         </Text>
       </HeroInfo>
+
+      <AbilitiesContent>
+        <Title>Abilities</Title>
+        <Abilities>
+          <Stats>
+            <NameStats>Intelligence</NameStats>
+            <RoundStats>
+              <ValueStats>44</ValueStats>
+            </RoundStats>
+          </Stats>
+
+          <Stats>
+            <NameStats>Speed</NameStats>
+            <RoundStats>
+              <ValueStats>100</ValueStats>
+            </RoundStats>
+          </Stats>
+
+          <Stats>
+            <NameStats>Power</NameStats>
+            <RoundStats>
+              <ValueStats>85</ValueStats>
+            </RoundStats>
+          </Stats>
+        </Abilities>
+      </AbilitiesContent>
     </Container>
   );
 }

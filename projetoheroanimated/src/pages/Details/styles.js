@@ -65,3 +65,52 @@ export const Text = styled.Text`
   line-height: 25px;
   margin-bottom: 20px;
 `;
+
+export const AbilitiesContent = styled.View`
+  background: #dfe3fb;
+  padding: 20px;
+`;
+
+export const Abilities = styled.ScrollView.attrs({
+  horizontal: true,
+  showsHorizontalScrollIndicator: false,
+})`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const Stats = styled.View`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  width: 140px;
+  height: 140px;
+  margin-right: 10px;
+`;
+
+export const NameStats = styled.Text`
+  color: #999;
+  font-size: 16px;
+  text-align: center;
+`;
+
+export const RoundStats = styled.View`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 5px solid #634da8;
+  height: 85px;
+  width: 85px;
+  border-radius: 50px;
+  margin-top: 8px;
+`;
+
+export const ValueStats = styled.Text`
+  color: #795fcf;
+  font-size: 25px;
+  text-align: center;
+`;
