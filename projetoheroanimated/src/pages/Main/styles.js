@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   flex: 1;
@@ -6,17 +7,6 @@ export const Container = styled.View`
   justify-content: flex-start;
   align-items: center;
   background-color: #999;
-`;
-
-export const HeaderSearch = styled.View`
-  flex-direction: row;
-  align-items: center;
-  margin-left: 10;
-  margin-right: 10;
-  justify-content: space-around;
-  background-color: #fff;
-  height: 40;
-  width: 100%;
 `;
 
 export const CardMain = styled.View`
@@ -35,4 +25,19 @@ export const ListCards = styled.View`
   background-color: #fff;
   width: 100%;
   flex: 1;
+`;
+
+export const ButtonExplorer = styled(RectButton)`
+  justify-content: center;
+  align-items: center;
+  background: #7159c1;
+  border-radius: 15px;
+  height: 30px;
+  width: 120px;
+  margin-top: 40;
+`;
+
+export const ButtonExplorerText = styled.Text`
+  font-weight: bold;
+  color: #fff;
 `;

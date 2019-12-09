@@ -1,11 +1,13 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View, Text } from 'react-native';
 
-import {Container} from './styles';
+import Header from '~/components/Header';
+import { Container } from './styles';
 
 export default function Details() {
   return (
     <Container>
+      <Header />
       <View>
         <Text>Details</Text>
       </View>
