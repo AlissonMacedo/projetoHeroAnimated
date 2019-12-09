@@ -24,7 +24,7 @@ const Routes = createAppContainer(
       ),
     },
     {
-      initialRouteName: 'screen',
+      initialRouteName: 'Main',
     },
   ),
 );
