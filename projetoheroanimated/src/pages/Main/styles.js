@@ -12,7 +12,7 @@ export const Container = styled.View`
 export const CardMain = styled.View`
   justify-content: center;
   align-items: center;
-  height: 60%;
+  height: 75%;
   width: 100%;
   background-color: #000;
   border-bottom-left-radius: 60;

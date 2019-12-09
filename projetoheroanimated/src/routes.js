@@ -5,10 +5,15 @@ import Main from '~/pages/Main';
 import Details from '~/pages/Details';
 
 const Routes = createAppContainer(
-  createSwitchNavigator({
-    Main,
-    Details,
-  }),
+  createSwitchNavigator(
+    {
+      Main,
+      Details,
+    },
+    {
+      initialRouteName: 'Details',
+    },
+  ),
 );
 
 export default Routes;
