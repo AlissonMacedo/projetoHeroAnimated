@@ -15,8 +15,8 @@ export const CardMain = styled.View`
   height: 300px;
   width: 100%;
   background-color: #000;
-  border-bottom-left-radius: 50;
-  border-bottom-right-radius: 50;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
 `;
 
 export const ListCards = styled.View`
@@ -42,7 +42,6 @@ export const ImagemCard = styled.Image`
   width: 100px;
   border-radius: 10px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-  border: solid 0.3px #333;
 `;
 
 export const DetailsCard = styled.View`

@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, Image, SafeAreaView, ScrollView } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  SafeAreaView,
+  ScrollView,
+  ActivityIndicator,
+} from 'react-native';
 
 import Header from '~/components/Header';
 import {
@@ -14,7 +21,6 @@ import {
 } from './styles';
 
 import Batman from '../../assets/batman.png';
-import Batman2 from '../../assets/batman2.jpg';
 
 export default function Main({ navigation }) {
   const [state, setState] = useState({
@@ -23,8 +29,7 @@ export default function Main({ navigation }) {
         id: 1,
         title: 'Batman',
         subtitle: 'Batman é foda',
-        link:
-          'https://www.fantasiascarol.com.br/fotos/extragrande/764fe1/fantasia-batman-adulto-de-luxo-com-musculo-vs-superman.jpg',
+        link: 'https://www.superherodb.com/pictures2/portraits/10/100/639.jpg',
       },
       {
         id: 2,
@@ -61,13 +66,17 @@ export default function Main({ navigation }) {
     <SafeAreaView style={{ flex: 1 }}>
       <Header />
       <Container>
-        <CardMain>
-          <Image source={Batman} style={{ height: 200, width: 200 }} />
-          <ButtonExplorer onPress={() => navigation.navigate('Details')}>
-            <ButtonExplorerText>Explorer</ButtonExplorerText>
-          </ButtonExplorer>
-        </CardMain>
-        <ScrollView style={{ alignSelf: 'stretch', marginTop: 5 }}>
+        {/* <View style={{ backgroundColor: '#000', alignSelf: 'stretch' }}>
+          <ActivityIndicator size="large" color="#FFF" />
+        </View> */}
+        <ScrollView style={{ alignSelf: 'stretch' }}>
+          <CardMain>
+            <Image source={Batman} style={{ height: 200, width: 200 }} />
+            <ButtonExplorer onPress={() => navigation.navigate('Details')}>
+              <ButtonExplorerText>Explorer</ButtonExplorerText>
+            </ButtonExplorer>
+          </CardMain>
+
           <ListCards>
             {state.hero.map(hero => (
               <CardListed key={hero.id}>
