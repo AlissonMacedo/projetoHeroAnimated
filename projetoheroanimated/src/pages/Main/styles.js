@@ -17,10 +17,11 @@ export const CardMain = styled.View`
   background-color: #000;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
+  overflow: hidden;
 `;
 
 export const ImageHero = styled.Image`
-  height: 200px;
+  height: 300px;
   width: 100%;
 `;
 
@@ -36,7 +37,7 @@ export const CardListed = styled.View`
   align-items: center;
   align-self: stretch;
   height: 120px;
-  margin: 10px;
+  margin: 25px 25px 10px 25px;
   padding: 10px;
 `;
 
@@ -51,20 +52,20 @@ export const DetailsCard = styled.View`
   flex: 1;
   flex-direction: column;
   padding: 10px 10px;
-  height: 90px;
-  background-color: #ccc;
+  height: 110px;
+  background-color: #dfe3fb;
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
 `;
 
-export const ButtonExplorer = styled(RectButton)`
+export const ButtonExplorer = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   background: #7159c1;
-  border-radius: 15px;
-  height: 30px;
-  width: 120px;
-  margin-top: 40;
+  border-radius: 25px;
+  padding: 15px 40px;
+  margin-top: -70px;
+  z-index: 5;
 `;
 
 export const ButtonExplorerText = styled.Text`

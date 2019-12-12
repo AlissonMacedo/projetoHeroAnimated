@@ -7,6 +7,7 @@ import {
   ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import api from '../../services/api';
 
@@ -27,6 +28,11 @@ import Batman from '../../assets/batman.png';
 
 export default function Main({navigation}) {
   const [heroes, setHeroes] = useState([]);
+  const [heroSelected, setHeroSelected] = useState();
+  const [headerImage, setHeaderImage] = useState(
+    'https://www.superherodb.com/pictures2/portraits/10/100/639.jpg',
+  );
+
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -48,13 +54,19 @@ export default function Main({navigation}) {
     navigation.navigate('Details', {hero});
   }
 
+  function handleChangeHeaderImage(item) {
+    setHeaderImage(item.image.url);
+    setHeroSelected(item);
+  }
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <Header />
       <Container>
         <CardMain>
-          <ImageHero source={Batman} resizeMode="cover" />
-          <ButtonExplorer onPress={() => navigation.navigate('Details')}>
+          <ImageHero source={{uri: headerImage}} resizeMode="cover" />
+
+          <ButtonExplorer onPress={() => handleNavigate(heroSelected)}>
             <ButtonExplorerText>Explorer</ButtonExplorerText>
           </ButtonExplorer>
         </CardMain>
@@ -67,33 +79,38 @@ export default function Main({navigation}) {
             key={heroes.id}
             keyExtractor={item => item.id}
             renderItem={({item}) => (
-              <CardListed key={item.id}>
-                <ImagemCard
-                  source={{uri: item.image.url}}
-                  resizeMode="contain"
-                />
-                <DetailsCard>
-                  <View>
-                    <Text style={{fontWeight: 'bold', fontSize: 20}}>
-                      {item.name}
-                    </Text>
-                  </View>
-                  <View
-                    style={{
-                      flex: 1,
-                      flexDirection: 'column',
-                      justifyContent: 'space-around',
-                    }}
-                  >
-                    <Text>{item.appearance.race}</Text>
-                    <TouchableOpacity onPress={() => handleNavigate(item)}>
-                      <Text style={{color: '#7159c1', fontWeight: 'bold'}}>
-                        View hero ->
+              <TouchableOpacity onPress={() => handleChangeHeaderImage(item)}>
+                <CardListed key={item.id}>
+                  <ImagemCard
+                    source={{uri: item.image.url}}
+                    resizeMode="contain"
+                  />
+                  <DetailsCard>
+                    <View>
+                      <Text style={{fontWeight: 'bold', fontSize: 20}}>
+                        {item.name}
                       </Text>
-                    </TouchableOpacity>
-                  </View>
-                </DetailsCard>
-              </CardListed>
+                    </View>
+                    <View
+                      style={{
+                        flex: 1,
+                        flexDirection: 'column',
+                        justifyContent: 'space-around',
+                      }}
+                    >
+                      <Text>{item.appearance.race}</Text>
+                      <TouchableOpacity
+                        onPress={() => handleChangeHeaderImage(item)}
+                      >
+                        <Text style={{color: '#7159c1', fontWeight: 'bold'}}>
+                          View hero{' '}
+                          <Icon name="arrow-forward" color="#7159c1" />
+                        </Text>
+                      </TouchableOpacity>
+                    </View>
+                  </DetailsCard>
+                </CardListed>
+              </TouchableOpacity>
             )}
           />
         )}
