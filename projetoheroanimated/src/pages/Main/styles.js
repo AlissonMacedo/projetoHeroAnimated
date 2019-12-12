@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { RectButton } from 'react-native-gesture-handler';
+import {RectButton} from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   flex: 1;
@@ -15,8 +15,13 @@ export const CardMain = styled.View`
   height: 300px;
   width: 100%;
   background-color: #000;
-  border-bottom-left-radius: 50;
-  border-bottom-right-radius: 50;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+`;
+
+export const ImageHero = styled.Image`
+  height: 200px;
+  width: 100%;
 `;
 
 export const ListCards = styled.FlatList.attrs({

@@ -2,11 +2,13 @@ import styled from 'styled-components/native';
 
 export const HeaderSearch = styled.View`
   flex-direction: row;
+  align-self: stretch;
   align-items: center;
-  margin-left: 10;
-  margin-right: 10;
   justify-content: space-around;
-  background-color: transparent;
-  height: 60;
-  width: 100%;
+  background-color: #000;
+  height: 60px;
+`;
+
+export const Text = styled.Text`
+  color: #fff;
 `;
