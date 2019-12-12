@@ -1,5 +1,15 @@
-import React, { useState } from 'react';
-import { View, Text, Image, SafeAreaView, ScrollView } from 'react-native';
+/* eslint-disable no-undef */
+import React, {useState, useEffect} from 'react';
+import {
+  View,
+  Text,
+  Image,
+  SafeAreaView,
+  ActivityIndicator,
+  TouchableOpacity,
+} from 'react-native';
+
+import api from '../../services/api';
 
 import Header from '~/components/Header';
 import {
@@ -16,7 +26,7 @@ import {
 import Batman from '../../assets/batman.png';
 import Batman2 from '../../assets/batman2.jpg';
 
-export default function Main({ navigation }) {
+export default function Main({navigation}) {
   const [state, setState] = useState({
     hero: [
       {
@@ -57,25 +67,56 @@ export default function Main({ navigation }) {
     ],
   });
 
+  const [heroes, setHeroes] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    async function loadHeroes() {
+      try {
+        setLoading(true);
+        const response = await api.get('/search/batman');
+
+        console.log(response.data.results);
+
+        setHeroes(response.data.results);
+        setLoading(false);
+      } catch (error) {}
+    }
+    loadHeroes();
+  }, []);
+
+  function handleNavigate(hero) {
+    navigation.navigate('Details', {hero});
+  }
+
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{flex: 1}}>
       <Header />
       <Container>
         <CardMain>
-          <Image source={Batman} style={{ height: 200, width: 200 }} />
+          <Image source={Batman} style={{height: 200, width: 200}} />
           <ButtonExplorer onPress={() => navigation.navigate('Details')}>
             <ButtonExplorerText>Explorer</ButtonExplorerText>
           </ButtonExplorer>
         </CardMain>
-        <ScrollView style={{ alignSelf: 'stretch', marginTop: 5 }}>
-          <ListCards>
-            {state.hero.map(hero => (
-              <CardListed key={hero.id}>
-                <ImagemCard source={{ uri: hero.link }} resizeMode="contain" />
+
+        {loading ? (
+          <ActivityIndicator color="#7159c1" size="large" />
+        ) : (
+          <ListCards
+            data={heroes}
+            key={heroes.id}
+            keyExtractor={item => item.id}
+            renderItem={({item}) => (
+              <CardListed key={item.id}>
+                <ImagemCard
+                  source={{uri: item.image.url}}
+                  resizeMode="contain"
+                />
                 <DetailsCard>
                   <View>
-                    <Text style={{ fontWeight: 'bold', fontSize: 20 }}>
-                      {hero.title}
+                    <Text style={{fontWeight: 'bold', fontSize: 20}}>
+                      {item.name}
                     </Text>
                   </View>
                   <View
@@ -83,17 +124,20 @@ export default function Main({ navigation }) {
                       flex: 1,
                       flexDirection: 'column',
                       justifyContent: 'space-around',
-                    }}>
-                    <Text>{hero.subtitle}</Text>
-                    <Text style={{ color: '#7159c1', fontWeight: 'bold' }}>
-                      Read More ->
-                    </Text>
+                    }}
+                  >
+                    <Text>{item.appearance.race}</Text>
+                    <TouchableOpacity onPress={() => handleNavigate(item)}>
+                      <Text style={{color: '#7159c1', fontWeight: 'bold'}}>
+                        View hero ->
+                      </Text>
+                    </TouchableOpacity>
                   </View>
                 </DetailsCard>
               </CardListed>
-            ))}
-          </ListCards>
-        </ScrollView>
+            )}
+          />
+        )}
       </Container>
     </SafeAreaView>
   );

@@ -19,13 +19,11 @@ export const CardMain = styled.View`
   border-bottom-right-radius: 50;
 `;
 
-export const ListCards = styled.View`
+export const ListCards = styled.FlatList.attrs({
+  showsVerticalScrollIndicator: false,
+})`
   flex: 1;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
   align-self: stretch;
-  margin: 5px 20px;
 `;
 
 export const CardListed = styled.View`
@@ -42,7 +40,6 @@ export const ImagemCard = styled.Image`
   width: 100px;
   border-radius: 10px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-  border: solid 0.3px #333;
 `;
 
 export const DetailsCard = styled.View`

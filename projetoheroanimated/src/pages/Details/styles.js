@@ -17,17 +17,9 @@ export const CardMain = styled.View`
   height: 350px;
   width: 100%;
   background-color: #000;
-<<<<<<< HEAD
-  border-bottom-left-radius: 60;
-  border-bottom-right-radius: 60;
-=======
   border-bottom-left-radius: 30;
   border-bottom-right-radius: 30;
-<<<<<<< HEAD
->>>>>>> 927fcc158c305ab20b47b80fbee588f113794843
-=======
   overflow: hidden;
->>>>>>> b192823e9d028e52ac85148d68e713c5965b45c6
 `;
 
 export const Image = styled.Image`
@@ -39,10 +31,7 @@ export const Heroes = styled.View`
   background: #fff;
   padding: 20px;
   border-radius: 12px;
-<<<<<<< HEAD
-=======
   margin-top: -65px;
->>>>>>> 927fcc158c305ab20b47b80fbee588f113794843
 `;
 
 export const HeroName = styled.Text`

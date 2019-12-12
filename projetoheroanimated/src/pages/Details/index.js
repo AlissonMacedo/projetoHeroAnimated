@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import {TouchableOpacity} from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
@@ -23,28 +23,24 @@ import {
 
 import Flash from '../../assets/flash.jpg';
 
-export default function Details() {
+export default function Details({navigation}) {
+  const hero = navigation.getParam('hero');
+
   return (
     <Container>
       <Content>
         <CardMain>
-          <Image resizeMode="cover" source={Flash} />
+          <Image resizeMode="cover" source={{uri: hero.image.url}} />
         </CardMain>
 
         <Heroes>
-          <HeroName>The Flash</HeroName>
+          <HeroName>{hero.name}</HeroName>
           <HeroDescription>The Tomorrow Knight</HeroDescription>
         </Heroes>
       </Content>
 
       <HeroInfo>
         <Title>Biography</Title>
-
-        <Text>
-          Batman Family, Batman Incorporated, Justice League, Outsiders, Wayne
-          Enterprises, Club of Heroes, formerly White Lantern Corps, Sinestro
-          Corps
-        </Text>
 
         <Text>
           Batman Family, Batman Incorporated, Justice League, Outsiders, Wayne
@@ -65,21 +61,21 @@ export default function Details() {
           <Stats>
             <NameStats>Intelligence</NameStats>
             <RoundStats>
-              <ValueStats>44</ValueStats>
+              <ValueStats>{hero.powerstats.intelligence}</ValueStats>
             </RoundStats>
           </Stats>
 
           <Stats>
             <NameStats>Speed</NameStats>
             <RoundStats>
-              <ValueStats>100</ValueStats>
+              <ValueStats>{hero.powerstats.speed}</ValueStats>
             </RoundStats>
           </Stats>
 
           <Stats>
             <NameStats>Power</NameStats>
             <RoundStats>
-              <ValueStats>85</ValueStats>
+              <ValueStats>{hero.powerstats.power}</ValueStats>
             </RoundStats>
           </Stats>
         </Abilities>
@@ -88,7 +84,7 @@ export default function Details() {
   );
 }
 
-Details.navigationOptions = ({ navigation }) => ({
+Details.navigationOptions = ({navigation}) => ({
   title: 'Back',
   headerLeft: () => (
     <TouchableOpacity onPress={() => navigation.navigate('Main')}>
