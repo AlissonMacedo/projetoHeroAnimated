@@ -24,6 +24,8 @@ import {
 export default function Details({navigation}) {
   const hero = navigation.getParam('hero');
 
+  console.log(hero);
+
   return (
     <Container>
       <Content>
@@ -33,24 +35,31 @@ export default function Details({navigation}) {
 
         <Heroes>
           <HeroName>{hero.name}</HeroName>
-          <HeroDescription>{hero.biography.aliases[1]}</HeroDescription>
+          <HeroDescription />
         </Heroes>
       </Content>
 
       <HeroInfo>
         <Title>Biography</Title>
 
+        <Text>Full name: {hero.biography['full-name']}</Text>
         <Text>
-          Batman Family, Batman Incorporated, Justice League, Outsiders, Wayne
-          Enterprises, Club of Heroes, formerly White Lantern Corps, Sinestro
-          Corps
+          Other names:{' '}
+          {hero.biography.aliases.map(item => (
+            <Text key={item}>{item}, </Text>
+          ))}
         </Text>
+        <Text>First apperance in {hero.biography['first-appearance']}</Text>
+        <Text>Relatives: {hero.connections.relatives}</Text>
 
-        <Text>
-          Batman Family, Batman Incorporated, Justice League, Outsiders, Wayne
-          Enterprises, Club of Heroes, formerly White Lantern Corps, Sinestro
-          Corps
-        </Text>
+        <Title>Work</Title>
+        <Text>{hero.work.base}</Text>
+        <Text>{hero.work.occupation}</Text>
+
+        <Title>Connections</Title>
+
+        <Text>{hero.connections['group-affiliation']}</Text>
+        <Text>{hero.connections.relatives}</Text>
       </HeroInfo>
 
       <AbilitiesContent>
@@ -74,6 +83,27 @@ export default function Details({navigation}) {
             <NameStats>Power</NameStats>
             <RoundStats>
               <ValueStats>{hero.powerstats.power}</ValueStats>
+            </RoundStats>
+          </Stats>
+
+          <Stats>
+            <NameStats>Durability</NameStats>
+            <RoundStats>
+              <ValueStats>{hero.powerstats.durability}</ValueStats>
+            </RoundStats>
+          </Stats>
+
+          <Stats>
+            <NameStats>Combat</NameStats>
+            <RoundStats>
+              <ValueStats>{hero.powerstats.combat}</ValueStats>
+            </RoundStats>
+          </Stats>
+
+          <Stats>
+            <NameStats>Strength</NameStats>
+            <RoundStats>
+              <ValueStats>{hero.powerstats.strength}</ValueStats>
             </RoundStats>
           </Stats>
         </Abilities>
