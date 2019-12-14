@@ -11,11 +11,7 @@ export default function Header() {
     <HeaderSearch>
       <Icon name="menu" color="#FFF" size={40} />
 
-      <InputPesquisa
-        placeholder="Pesquisar..."
-        autoCapitalize="none"
-        onChangeText={text => searchFilterFunction(text)}
-      />
+      <InputPesquisa placeholder="Pesquisar..." autoCapitalize="none" />
       <Icon name="search" color="#FFF" size={40} />
     </HeaderSearch>
   );

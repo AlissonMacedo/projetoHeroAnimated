@@ -26,12 +26,27 @@ import {
 
 export default function Main({navigation}) {
   const [heroes, setHeroes] = useState([]);
+
+  const [search, setSearch] = useState('');
+
   const [heroSelected, setHeroSelected] = useState();
   const [headerImage, setHeaderImage] = useState(
     'http://yoba.com.br/19/wp-content/uploads/2018/10/DCVol2Marquee_57466713405381.60938022.jpg',
   );
 
   const [loading, setLoading] = useState(false);
+
+  async function loadHeroesNova() {
+    try {
+      const pesquisa = search;
+      setLoading(true);
+      const response = await api.get(`/search/${pesquisa}`);
+
+      setHeroes(response.data.results);
+      setLoading(false);
+      console.log(search);
+    } catch (error) {}
+  }
 
   useEffect(() => {
     async function loadHeroes() {
@@ -57,12 +72,12 @@ export default function Main({navigation}) {
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      <Header />
+      <Header onChangeText={text => setSearch(text)} />
       <Container>
         <CardMain>
           <ImageHero source={{uri: headerImage}} resizeMode="cover" />
 
-          <ButtonExplorer onPress={() => handleNavigate(heroSelected)}>
+          <ButtonExplorer onPress={() => loadHeroesNova()}>
             <ButtonExplorerText>Explorer</ButtonExplorerText>
           </ButtonExplorer>
         </CardMain>
