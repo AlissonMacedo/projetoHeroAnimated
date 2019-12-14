@@ -21,8 +21,6 @@ import {
   ValueStats,
 } from './styles';
 
-import Flash from '../../assets/flash.jpg';
-
 export default function Details({navigation}) {
   const hero = navigation.getParam('hero');
 
@@ -35,7 +33,7 @@ export default function Details({navigation}) {
 
         <Heroes>
           <HeroName>{hero.name}</HeroName>
-          <HeroDescription>The Tomorrow Knight</HeroDescription>
+          <HeroDescription>{hero.biography.aliases[1]}</HeroDescription>
         </Heroes>
       </Content>
 

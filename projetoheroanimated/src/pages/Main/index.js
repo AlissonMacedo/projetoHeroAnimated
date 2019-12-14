@@ -24,13 +24,11 @@ import {
   DetailsCard,
 } from './styles';
 
-import Batman from '../../assets/batman.png';
-
 export default function Main({navigation}) {
   const [heroes, setHeroes] = useState([]);
   const [heroSelected, setHeroSelected] = useState();
   const [headerImage, setHeaderImage] = useState(
-    'https://www.superherodb.com/pictures2/portraits/10/100/639.jpg',
+    'http://yoba.com.br/19/wp-content/uploads/2018/10/DCVol2Marquee_57466713405381.60938022.jpg',
   );
 
   const [loading, setLoading] = useState(false);
@@ -39,9 +37,7 @@ export default function Main({navigation}) {
     async function loadHeroes() {
       try {
         setLoading(true);
-        const response = await api.get('/search/batman');
-
-        console.log(response.data.results);
+        const response = await api.get('/search/flash');
 
         setHeroes(response.data.results);
         setLoading(false);

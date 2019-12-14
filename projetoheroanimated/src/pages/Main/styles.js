@@ -45,7 +45,6 @@ export const ImagemCard = styled.Image`
   height: 130px;
   width: 100px;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 `;
 
 export const DetailsCard = styled.View`
@@ -56,6 +55,7 @@ export const DetailsCard = styled.View`
   background-color: #dfe3fb;
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 `;
 
 export const ButtonExplorer = styled.TouchableOpacity`
