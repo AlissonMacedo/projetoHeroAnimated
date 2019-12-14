@@ -22,6 +22,8 @@ import {
   CardListed,
   ImagemCard,
   DetailsCard,
+  HeaderSearch,
+  InputPesquisa,
 } from './styles';
 
 export default function Main({navigation}) {
@@ -72,12 +74,23 @@ export default function Main({navigation}) {
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      <Header onChangeText={text => setSearch(text)} />
+      <HeaderSearch>
+        <Icon name="menu" color="#FFF" size={40} />
+        <InputPesquisa
+          placeholder="Pesquisar..."
+          autoCapitalize="none"
+          onChangeText={text => setSearch(text)}
+        />
+        <TouchableOpacity onPress={() => loadHeroesNova()}>
+          <Icon name="search" color="#FFF" size={40} />
+        </TouchableOpacity>
+      </HeaderSearch>
+
       <Container>
         <CardMain>
           <ImageHero source={{uri: headerImage}} resizeMode="cover" />
 
-          <ButtonExplorer onPress={() => loadHeroesNova()}>
+          <ButtonExplorer onPress={() => handleNavigate(heroSelected)}>
             <ButtonExplorerText>Explorer</ButtonExplorerText>
           </ButtonExplorer>
         </CardMain>

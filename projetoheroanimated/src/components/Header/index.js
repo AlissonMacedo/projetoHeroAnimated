@@ -2,16 +2,15 @@ import React from 'react';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import {HeaderSearch, InputPesquisa} from './styles';
+import {HeaderSearch} from './styles';
 
 function searchFilterFunction() {}
 
-export default function Header() {
+export default function Header(onchange) {
   return (
     <HeaderSearch>
       <Icon name="menu" color="#FFF" size={40} />
 
-      <InputPesquisa placeholder="Pesquisar..." autoCapitalize="none" />
       <Icon name="search" color="#FFF" size={40} />
     </HeaderSearch>
   );
